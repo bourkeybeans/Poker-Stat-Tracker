@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Player Profile
+{% endblock %}
+
+{% block main %}
+
+
+
+<header style="font-size :x-large"> Your Stats! : {{ users.username }}</header>
+<br>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Lifetime Spend</th>
+            <th>Lifetime Earnings</th>
+            <th>Hours Played</th>
+            <th>Hourly Income</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ usd(profile.lifetime_spend) }}</td>
+            {% if profile.lifetime_earnings >= 0 %}
+            <td style="color: green;">{{ usd(profile.lifetime_earnings) }}</td>
+            {% else %}
+            <td style="color: red;">{{ usd(profile.lifetime_earnings) }}</td>
+            {% endif %}
+            {% if profile.hours_played == 0 %}
+            <td>0</td>
+            <td>0</td>
+            {% else %}
+                <td>{{ round(profile.hours_played, 2) }}</td>
+                <td>{{ usd(round(profile.lifetime_earnings / round(profile.hours_played, 2), 2)) }}</td>
+            {% endif %}
+            
+
+        </tr>
+        
+    <tfoot>
+
+    </tfoot>
+</table>
+<br>
+<header> Add Friends : </header>
+<form action="/addfriend" method="post">
+    <input type="text" placeholder="Username" name="friendname" required>
+    <button type="submit">Add</button>
+</form>
+
+<div class="friendslist">
+    <p></p>
+
+<p class="d-inline-flex gap-1">
+    <a style="color :white" class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Friends List:
+    </a>
+
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Action</th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                    <tr>
+                        {% if is_friends == False %}
+                    <td> You have no friends </td>
+                    <td> No Actions To Be Made</td>
+                    {% else %}
+                        {% set count = 0 %}
+                        {% for friend in friends_profiles %}
+                        {% set count = count + 1 %}
+                        <td> {{ friend.username }} </td>
+                        <td>
+                            <form action="/viewstats" method="post">
+                                <input type="hidden" id="buttonValue" name="friends_id" value="{{ friend.user_id }}">
+                                <button type="submit">View Stats</button>
+                            </form>
+                        </td>
+                        <td>
+                        <form action="/removefriend" method="post">
+                            <input type="hidden" id="buttonValue" name="delete_id" value="{{ friend.user_id }}">
+                            <button style="color: red" type="submit">Remove Friend</button>
+                        </form>
+                        </td>
+                        
+                    </tr>
+            
+                 </tbody>
+            <ol> </ol>
+            {% endfor %}
+            {% endif %}
+            </div>
+        </div>
+      </div>
+
+
+{% endblock %}
+

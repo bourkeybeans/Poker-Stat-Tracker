@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Player Profile
+{% endblock %}
+
+{% block main %}
+
+
+
+<header style="font-size :x-large"> {{ friendprofile.username }} Stats!</header>
+<br>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Lifetime Spend</th>
+            <th>Lifetime Earnings</th>
+            <th>Hours Played</th>
+            <th>Hourly Income</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ usd(friendprofile.lifetime_spend) }}</td>
+            {% if friendprofile.lifetime_earnings >= 0 %}
+            <td style="color: green;">{{ usd(friendprofile.lifetime_earnings) }}</td>
+            {% else %}
+            <td style="color: red;">{{ usd(friendprofile.lifetime_earnings) }}</td>
+            {% endif %}
+            {% if friendprofile.hours_played == 0 %}
+            <td>0</td>
+            <td>0</td>
+            {% else %}
+                <td>{{ round(friendprofile.hours_played, 2) }}</td>
+                <td>{{ usd(round(friendprofile.lifetime_earnings / round(friendprofile.hours_played, 2), 2)) }}</td>
+            {% endif %}
+
+        </tr>
+        
+    <tfoot>
+
+    </tfoot>
+</table>
+<br>
+{% endblock %}

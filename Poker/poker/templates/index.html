@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+{% block title %}
+    Homepage
+{% endblock %}
+
+
+{% block main %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Tracker</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background: url('https://static.vecteezy.com/system/resources/thumbnails/016/122/863/small_2x/poker-and-casino-playing-card-background-with-royal-flush-on-black-vector.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #007bff;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 0;
+        }
+        .testimonials blockquote {
+            border-left: 4px solid #007bff;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero text-center">
+        <div class="container">
+            {% if session["user_id"] %}
+            <h1 class="display-4">Welcome Back {{ users.username }}!</h1>
+            <p class="lead">Analyze your game, improve your strategy, and win more.</p>
+            <a href="/track" class="btn btn-primary btn-lg">Record Games Now</a>
+            {% else %}
+            <h1 class="display-4">Enhance Your Game With Poker Tracker!</h1>
+            <p class="lead">Analyze your game, improve your strategy, and win more.</p>
+            <a href="/register" class="btn btn-primary btn-lg">Register Now!</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Add Friends</h3>
+                    <p>Track and Your Friends Statistics, See How You Match Up.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Statistics & Analytics</h3>
+                    <p>View detailed performance stats and trends.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Bankroll Management</h3>
+                    <p>Monitor and manage your poker bankroll effectively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="bg-light py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h4>1. Record Your Games</h4>
+                    <p>Record the results of you games</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>2. Track Your Play</h4>
+                    <p>Get visual feedback on where you play best, whether thats online, or at the casino.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>3. Analyze Your Performance</h4>
+                    <p>Access detailed stats and reports to improve your game.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container text-center">
+            <h2>What Our Users Say</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"Best poker tracker ever!"</p>
+                        
+                    </blockquote>
+                </div>
+                <div class="col-md-6">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"Revolutionized my poker game."</p>
+                        
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <p>&copy; 2024 Poker Tracker. All rights reserved.</p>
+            <p>
+                <a href="#contact">Contact</a> |
+                <a href="#privacy-policy">Privacy Policy</a> |
+                <a href="#terms-of-service">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
+ 
+
+
+
+
+{% endblock %}

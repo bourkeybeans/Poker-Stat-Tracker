@@ -1,0 +1,31 @@
+
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: x-large;
+}
+
+/* Colors for brand */
+
+nav .navbar-brand .black
+{
+    color: black;
+}
+nav .navbar-brand .red
+{
+    color: red;
+}
+
+#balance
+{
+    font-size: large;
+    width: 300px;
+    height: 250PX;
+
+
+}
+
+#balance_box
+{
+    text-align: left;
+}
