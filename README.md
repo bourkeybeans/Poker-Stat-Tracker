@@ -5,7 +5,7 @@
 - Edx : FinBourke
 - Norwich : United Kingdom
 - Date : Tuesday 13th August 2024, 13/08/2024
-# POKER TRACKERß
+# POKER TRACKER
 
 
 #### Video Demo:  <URL HERE>
