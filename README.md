@@ -6,6 +6,15 @@
 - Date : Tuesday 13th August 2024, 13/08/2024
 # POKER TRACKER
 
+# How to use
+- Make sure Python 3 is installed on your device
+- Install the necessary dependencies using the following command:
+```
+pip install flask cs50
+```
+- Clone the repository to your device
+- Type 'flask run' in the terminal (make sure you are running this command from inside the poker folder
+
 
 #### Video Demo:  <URL HERE>
 #### Description:
