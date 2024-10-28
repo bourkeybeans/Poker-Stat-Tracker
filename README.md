@@ -4,7 +4,7 @@
 - Github : Bourkeybeans
 - Edx : FinBourke
 - Date : Tuesday 13th August 2024, 13/08/2024
-# POKER TRACKER
+
 
 # How to use
 - Make sure Python 3 is installed on your device
@@ -15,8 +15,9 @@ pip install flask cs50
 - Clone the repository to your device
 - Type 'flask run' in the terminal (make sure you are running this command from inside the poker folder
 
+# POKER TRACKER
 
-#### Video Demo:  <URL HERE>
+#### Video Demo:  <https://www.youtube.com/watch?v=5N893LgzmDo>
 #### Description:
 My project allows users to track and visually graph up there poker results, through recording different aspects of their session, including the casino type, if the game was online or live, the stakes of the game, and there buyin and cashout, alongside the start and end time, allowing me to later calculate their total hours played.
 
